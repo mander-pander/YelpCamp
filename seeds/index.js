@@ -7,7 +7,7 @@ mongoose.connect('mongodb://localhost:27017/yelp-camp', {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true
-})
+});
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
@@ -28,14 +28,18 @@ const seedDB = async () => {
             title: `${sample(descriptors)} ${sample(places)}`,
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda ullam incidunt consequatur praesentium magnam, explicabo, rem rerum cumque facilis voluptatibus voluptate quos adipisci quas expedita? Magnam esse unde nihil omnis!',
             price,
+            geometry: {
+                type: "Point",
+                coordinates: [-113.1331, 47.0202]
+            },
             images: [
                 {
-                  url: 'https://res.cloudinary.com/dgpet2y0h/image/upload/v1625858857/YelpCamp/npugu3ec1pvox1k2uysg.jpg',
-                  filename: 'YelpCamp/npugu3ec1pvox1k2uysg'
+                  url: 'https://res.cloudinary.com/dgpet2y0h/image/upload/v1626733583/YelpCamp/tyvy7us47zspavq9tv3x.jpg',
+                  filename: 'YelpCamp/tyvy7us47zspavq9tv3x'
                 },
                 {
-                  url: 'https://res.cloudinary.com/dgpet2y0h/image/upload/v1625858859/YelpCamp/hwlgp1nhga84yryopg6i.jpg',
-                  filename: 'YelpCamp/hwlgp1nhga84yryopg6i'
+                  url: 'https://res.cloudinary.com/dgpet2y0h/image/upload/v1626225102/YelpCamp/trf3xjtkcuvabgwgk4yq.jpg',
+                  filename: 'YelpCamp/trf3xjtkcuvabgwgk4yq'
                 }
               ]
         })
